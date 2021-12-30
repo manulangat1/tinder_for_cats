@@ -4,13 +4,14 @@ import { BrowserRouter as Router } from 'react-router-dom';
 import { Provider } from 'react-redux';
 import { store } from './ReduxStore/store';
 import { Typography } from '@mui/material';
+import Dashboard from './components/Dashboard';
 
 function App() {
   return (
     <Fragment>
       <Provider store={store}>
 				<Router>
-					<Typography variant='h3' > Getting started</Typography>
+				<Dashboard />
 				</Router>
 			</Provider>
     </Fragment>
