@@ -28,7 +28,7 @@ import EmojiNatureIcon from '@mui/icons-material/EmojiNature';
 const routes = [
 	{
 		id: 1,
-		link: '/breeds',
+		link: '/',
 		route: 'breeds',
 	},
 	{
@@ -108,9 +108,31 @@ const Header = () => {
         <AppBar position="sticky">
 			<Container maxWidth="xl">
 						<Toolbar disableGutters>
-					<Typography variant="h6" noWrap component="div" sx={{ mr: 2, display: { xs: 'none', md: 'flex' } }}>
+					<Typography variant="h6" noWrap component="div" sx={{ mr: 2, display: { xs: 'flex', md: 'flex' } }}>
 						<NavLink to="/">  <EmojiNatureIcon /> </NavLink>
 					</Typography>
+					
+					<Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex', lg: 'flex', xl: 'flex' } }}>
+						{routes.map(route => (
+							<Button key={route.id} onClick={onClick} sx={{ my: 2, color: 'white', display: 'block' }}>
+								<Link style={{ textDecoration: 'none' }} to={route.link}>
+									{route.route}
+								</Link>
+							</Button>
+						))}
+					</Box>
+		
+					<Search onClick={onClick}>
+						<SearchIconWrapper>
+							<SearchIcon />
+						</SearchIconWrapper>
+						<StyledInputBase
+							onChange={onClick}
+							placeholder="Search…"
+							inputProps={{ 'aria-label': 'search' }}
+						/>
+					</Search>
+
 					<Box sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' } }}>
 						<IconButton
 							size="large"
@@ -149,26 +171,6 @@ const Header = () => {
 							))}
 						</Menu>
 					</Box>
-					<Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex', lg: 'flex', xl: 'flex' } }}>
-						{routes.map(route => (
-							<Button key={route.id} onClick={onClick} sx={{ my: 2, color: 'white', display: 'block' }}>
-								<Link style={{ textDecoration: 'none' }} to={route.link}>
-									{route.route}
-								</Link>
-							</Button>
-						))}
-					</Box>
-		
-					<Search onClick={onClick}>
-						<SearchIconWrapper>
-							<SearchIcon />
-						</SearchIconWrapper>
-						<StyledInputBase
-							onChange={onClick}
-							placeholder="Search…"
-							inputProps={{ 'aria-label': 'search' }}
-						/>
-					</Search>
 				</Toolbar>
 				
 				
