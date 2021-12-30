@@ -28,13 +28,13 @@ import EmojiNatureIcon from '@mui/icons-material/EmojiNature';
 const routes = [
 	{
 		id: 1,
-		link: '/',
-		route: 'breeds',
+		link: '/home',
+		route: 'Home',
 	},
 	{
 		id: 2,
-		link: '/categories',
-		route: 'categories',
+		link: '/random',
+		route: 'Randoms',
 	},
 	{
 		id: 3,
@@ -109,10 +109,10 @@ const Header = () => {
 			<Container maxWidth="xl">
 						<Toolbar disableGutters>
 					<Typography variant="h6" noWrap component="div" sx={{ mr: 2, display: { xs: 'flex', md: 'flex' } }}>
-						<NavLink to="/">  <EmojiNatureIcon /> </NavLink>
+						<NavLink to="/">  <EmojiNatureIcon color="secondary"/>  </NavLink>
 					</Typography>
 					
-					<Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex', lg: 'flex', xl: 'flex' } }}>
+					<Box sx={{ flexGrow: 1, display: { xs: 'none', sm:'flex', md: 'flex', lg: 'flex', xl: 'flex' } }}>
 						{routes.map(route => (
 							<Button key={route.id} onClick={onClick} sx={{ my: 2, color: 'white', display: 'block' }}>
 								<Link style={{ textDecoration: 'none' }} to={route.link}>
@@ -133,7 +133,7 @@ const Header = () => {
 						/>
 					</Search>
 
-					<Box sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' } }}>
+					<Box sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none', sm:'none' } }}>
 						<IconButton
 							size="large"
 							aria-label="account of current user"

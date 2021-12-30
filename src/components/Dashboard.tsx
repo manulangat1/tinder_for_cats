@@ -5,6 +5,7 @@ import { Route, Routes } from 'react-router-dom';
 import { Container } from '@mui/material';
 import NotFound from './NotFound/NotFound';
 import Breeds from './Cats/Breeds';
+import Cats from './Cats/Cats';
 
 const  Dashboard = () => {
     return (
@@ -13,6 +14,7 @@ const  Dashboard = () => {
             <Container style={{marginTop:'4rem'}} maxWidth="xl">
                 <Routes>
                     <Route path="/" element={<Breeds />} />
+                    <Route path="/random" element={<Cats />} />
                     <Route path="*" element={<NotFound />} />
                 </Routes>
             </Container>
