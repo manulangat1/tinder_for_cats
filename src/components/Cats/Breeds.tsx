@@ -12,9 +12,8 @@ import CatGridDisplay from '../Reusables/CatGridDisplay';
 const Breeds = () => {
     const dispatch = useDispatch()
     useEffect(( ) => {
-        // setTimeout(() => {
             dispatch(GetAllBreeds())
-        // }, 4000);
+
         
     },[])
     const [page, setPage] = useState(1)

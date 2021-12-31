@@ -43,7 +43,7 @@ const CatGridDisplay = ({ cats, isLoading, xs, sm, md, lg, xl, page, setPage, di
 					))}
 			</Grid>
 			{isLoading && (
-				<section>
+				
 					<Grid container spacing={2}>
 						<Container maxWidth="xl" >
 						<Grid item xs={12} sm={12} md={6} lg={6} xl={6}>
@@ -96,7 +96,7 @@ const CatGridDisplay = ({ cats, isLoading, xs, sm, md, lg, xl, page, setPage, di
 						</Grid>
 						</Container>
 					</Grid>
-				</section>
+				
 			)}
 
 			{displayPagination && cats && cats.length > 0 && (
