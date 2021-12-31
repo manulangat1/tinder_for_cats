@@ -13,9 +13,10 @@ interface propsInterface {
 	xl?: number;
 	page: number;
 	setPage: any;
+	displayPagination: boolean
 }
 
-const CatGridDisplay = ({ cats, isLoading, xs, sm, md, lg, xl, page, setPage }: propsInterface) => {
+const CatGridDisplay = ({ cats, isLoading, xs, sm, md, lg, xl, page, setPage, displayPagination }: propsInterface) => {
 	const matches = useMediaQuery('(max-width:440px)');
 	const itemsPerPage = matches ? 9 : 12;
 	return (
@@ -46,8 +47,8 @@ const CatGridDisplay = ({ cats, isLoading, xs, sm, md, lg, xl, page, setPage }: 
 					<Grid container spacing={2}>
 						<Container maxWidth="xl" >
 						<Grid item xs={12} sm={12} md={6} lg={6} xl={6}>
-							<div>
-								<Skeleton variant="circular" width={40} height={40} />
+							<div style={{ justifyContent:'center'  }}>
+								<Skeleton variant="circular" width={40} height={40}  />
 								<Skeleton variant="text" width={210} height={118} />
 								<Skeleton variant="rectangular" width={210} height={118} />
 							</div>
@@ -98,7 +99,7 @@ const CatGridDisplay = ({ cats, isLoading, xs, sm, md, lg, xl, page, setPage }: 
 				</section>
 			)}
 
-			{cats && cats.length > 0 && (
+			{displayPagination && cats && cats.length > 0 && (
 				<Pagination
 					size={matches ? 'small' : 'medium'}
 					style={{ display: 'flex', justifyContent: 'center', marginTop: '1rem', marginBottom: '1rem' }}

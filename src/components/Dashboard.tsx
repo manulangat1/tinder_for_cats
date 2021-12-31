@@ -6,6 +6,7 @@ import { Container } from '@mui/material';
 import NotFound from './NotFound/NotFound';
 import Breeds from './Cats/Breeds';
 import Cats from './Cats/Cats';
+import Favourites from './Cats/Favourites';
 
 const  Dashboard = () => {
     return (
@@ -15,6 +16,7 @@ const  Dashboard = () => {
                 <Routes>
                     <Route path="/" element={<Breeds />} />
                     <Route path="/random" element={<Cats />} />
+                    <Route path="/favourites" element={<Favourites />} />
                     <Route path="*" element={<NotFound />} />
                 </Routes>
             </Container>

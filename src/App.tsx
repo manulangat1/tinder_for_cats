@@ -3,7 +3,7 @@ import { BrowserRouter as Router } from 'react-router-dom';
 
 import { Provider } from 'react-redux';
 import { store } from './ReduxStore/store';
-import { Typography } from '@mui/material';
+
 import Dashboard from './components/Dashboard';
 
 function App() {

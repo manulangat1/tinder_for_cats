@@ -12,15 +12,20 @@ const Cats = () => {
 
     const dispatch = useDispatch()
     useEffect(() => {
-        dispatch(GetAllCats())
+        setTimeout(() => {
+            dispatch(GetAllCats())  
+        }, 6000);
+        
     },[])
     const [page, setPage] = useState(1)
     
     const cats:Cat[] = useSelector((state:RootState) => state.cats['cats'])
     const isLoading:boolean = useSelector((state:RootState) => state.cats['loading'])
+    // eslint-disable-next-line no-console
+    console.log(isLoading)
     return (
         <Fragment>
-            <CatGridDisplay cats={cats}  isLoading={isLoading} page={page} setPage={setPage} />
+            <CatGridDisplay cats={cats}  isLoading={isLoading} page={page} setPage={setPage} displayPagination={true} />
         </Fragment>
     )
 };

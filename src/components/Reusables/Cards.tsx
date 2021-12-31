@@ -10,7 +10,7 @@ import Popup from './Popup';
 const Cards = ({id,url,name,description}:Cat) => {
     const [open, setOpen] = useState<boolean>(false)
     const [message, setMessage] = useState<string>('')
-    const [severity, setSeverity] = useState<AlertColor>()
+    const [success, setSuccess] = useState<boolean>(false)
     const handleLikeClick = (id?:number,url?:string,name?:string,description?:string) => {
         const data = {
             id,url,name,description
@@ -19,7 +19,7 @@ const Cards = ({id,url,name,description}:Cat) => {
         localStorageHelpers.SaveDataToLocalStorage(data)
         setOpen(true)
         setMessage(`You like ${name}`)
-        setSeverity('success')
+        setSuccess(true)
     }
     const handleDisLikeClick = (id?:number,url?:string,name?:string,description?:string) => {
         const data = {
@@ -29,14 +29,14 @@ const Cards = ({id,url,name,description}:Cat) => {
         localStorageHelpers.removeDatafromLocalStorage(data)
         setOpen(true)
         setMessage(`You dislike ${name}, continue browsing to check for cats you can like`)
-        setSeverity('success')
+        setSuccess(false)
     }
 
     const handleSnackbarClose = () => setOpen(false)
     return (
         <Fragment>
             {
-                open && <Popup  open={open} onClose={handleSnackbarClose} message={message}  />
+                open && <Popup  open={open} onClose={handleSnackbarClose} message={message} success={success} />
             }
             <Card sx={{maxWidth:345}}>
             <CardMedia
