@@ -12,10 +12,8 @@ const Cats = () => {
 
     const dispatch = useDispatch()
     useEffect(() => {
-        setTimeout(() => {
-            dispatch(GetAllCats())  
-        }, 6000);
-        
+
+            dispatch(GetAllCats())    
     },[])
     const [page, setPage] = useState(1)
     
