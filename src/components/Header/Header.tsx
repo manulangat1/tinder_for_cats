@@ -12,6 +12,7 @@ import {
 	Menu,
 	MenuItem,
 	TextField,
+	TextFieldProps,
 	Toolbar,
 	Typography,
 } from '@mui/material';
@@ -23,18 +24,20 @@ import InputBase from '@mui/material/InputBase';
 import { useDispatch, useSelector } from 'react-redux';
 
 import EmojiNatureIcon from '@mui/icons-material/EmojiNature';
-
+import { RootState } from '../../ReduxStore/store';
+import { GetAllCategories } from '../../ReduxStore/cats/Action';
+import { Cat } from '../../ReduxStore/cats/Interface';
 
 const routes = [
 	{
 		id: 1,
 		link: '/',
-		route: 'breeds',
+		route: 'Home',
 	},
 	{
 		id: 2,
-		link: '/categories',
-		route: 'categories',
+		link: '/random',
+		route: 'Randoms',
 	},
 	{
 		id: 3,
@@ -85,15 +88,18 @@ const StyledInputBase = styled(InputBase)(({ theme }) => ({
 	},
 }));
 
-
 const Header = () => {
-    const dispatch = useDispatch();
+	const dispatch = useDispatch();
+	useEffect(() => {
+		dispatch(GetAllCategories());
+	}, []);
+	const cats: Cat[] = useSelector((state: RootState) => state.cats['catCategories']);
 	// eslint-disable-next-line no-console
 	const onClick = () => console.log('hellow ');
 	const [anchorElNav, setAnchorElNav] = React.useState<null | HTMLElement>(null);
-    const [anchorElUser, setAnchorElUser] = React.useState<null | HTMLElement>(null);
+	const [anchorElUser, setAnchorElUser] = React.useState<null | HTMLElement>(null);
 
-    const handleOpenNavMenu = (event: React.MouseEvent<HTMLElement>) => {
+	const handleOpenNavMenu = (event: React.MouseEvent<HTMLElement>) => {
 		setAnchorElNav(event.currentTarget);
 	};
 	const handleOpenUserMenu = (event: React.MouseEvent<HTMLElement>) => {
@@ -104,15 +110,18 @@ const Header = () => {
 		setAnchorElNav(null);
 	};
 
-    return (
-        <AppBar position="sticky">
+	return (
+		<AppBar position="sticky">
 			<Container maxWidth="xl">
-						<Toolbar disableGutters>
+				<Toolbar disableGutters>
 					<Typography variant="h6" noWrap component="div" sx={{ mr: 2, display: { xs: 'flex', md: 'flex' } }}>
-						<NavLink to="/">  <EmojiNatureIcon /> </NavLink>
+						<NavLink to="/">
+							{' '}
+							<EmojiNatureIcon color="secondary" />{' '}
+						</NavLink>
 					</Typography>
-					
-					<Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex', lg: 'flex', xl: 'flex' } }}>
+
+					<Box sx={{ flexGrow: 1, display: { xs: 'none', sm: 'flex', md: 'flex', lg: 'flex', xl: 'flex' } }}>
 						{routes.map(route => (
 							<Button key={route.id} onClick={onClick} sx={{ my: 2, color: 'white', display: 'block' }}>
 								<Link style={{ textDecoration: 'none' }} to={route.link}>
@@ -121,7 +130,6 @@ const Header = () => {
 							</Button>
 						))}
 					</Box>
-		
 					<Search onClick={onClick}>
 						<SearchIconWrapper>
 							<SearchIcon />
@@ -133,7 +141,7 @@ const Header = () => {
 						/>
 					</Search>
 
-					<Box sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' } }}>
+					<Box sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none', sm: 'none' } }}>
 						<IconButton
 							size="large"
 							aria-label="account of current user"
@@ -172,11 +180,9 @@ const Header = () => {
 						</Menu>
 					</Box>
 				</Toolbar>
-				
-				
 			</Container>
 		</AppBar>
-    )
-}
+	);
+};
 
-export default Header
+export default Header;

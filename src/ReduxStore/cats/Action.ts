@@ -23,7 +23,7 @@ export const GetAllCats = () => (dispatch: Dispatch) => {
 			// const { data } = error.response;
             // eslint-disable-next-line 
             console.log(error)
-			// dispatch({ type: ResourceTypes.Errors, payload: { errors: data } });
+			
 		},
 	);
 };
@@ -49,7 +49,7 @@ export const GetAllBreeds = () => (dispatch: Dispatch) => {
 			// const { data } = error.response;
             // eslint-disable-next-line 
             console.log(error)
-			// dispatch({ type: ResourceTypes.Errors, payload: { errors: data } });
+			
 		},
 	);
 };
@@ -74,7 +74,7 @@ export const GetAllCategories = () => (dispatch: Dispatch) => {
 			// const { data } = error.response;
             // eslint-disable-next-line 
             console.log(error)
-			// dispatch({ type: ResourceTypes.Errors, payload: { errors: data } });
+			
 		},
 	);
 };

@@ -1,6 +1,6 @@
 export const ApiEndpoints = {
     breeds:'breeds',
-    categories:'images/search?category_ids=4',
+    categories:'categories',
     search:'images/search?limit=50'
 };
 
