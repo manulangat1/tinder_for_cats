@@ -20,7 +20,7 @@ export const catReducer = (state=initialState,action:CatTypeAction) => {
                 ...state,
                 loading:false,
                 cats:action.payload.data,
-                // catsBreed:null,
+                catsBreed:null,
                 catCategories:null
             }
         case CatsTypes.LOAD_ALL_BREEDS:
@@ -28,7 +28,7 @@ export const catReducer = (state=initialState,action:CatTypeAction) => {
                 ...state,
                 loading:false,
                 catBreeds:action.payload.data,
-                // catCategories:null,
+                catCategories:null,
                 cats:null
             }
         case CatsTypes.LOAD_ALL_CATS_CATEGORIES:
@@ -36,8 +36,8 @@ export const catReducer = (state=initialState,action:CatTypeAction) => {
                 ...state,
                 loading:false,
                 catCategories:action.payload.data,
-                // cats:null,
-                // catsBreed:null,
+                cats:null,
+                catsBreed:null,
             }
         default:
             return state 

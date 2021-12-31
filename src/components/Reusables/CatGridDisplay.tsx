@@ -44,18 +44,56 @@ const CatGridDisplay = ({ cats, isLoading, xs, sm, md, lg, xl, page, setPage }: 
 			{isLoading && (
 				<section>
 					<Grid container spacing={2}>
-						{/* <Container maxWidth="xl" > */}
-							<Grid item xs={12} sm={12} md={6} lg={6} xl={6}>
+						<Container maxWidth="xl" >
+						<Grid item xs={12} sm={12} md={6} lg={6} xl={6}>
+							<div>
 								<Skeleton variant="circular" width={40} height={40} />
-								<Skeleton variant="text" />
+								<Skeleton variant="text" width={210} height={118} />
 								<Skeleton variant="rectangular" width={210} height={118} />
-							</Grid>
-							<Grid item xs={12} sm={12} md={6} lg={6} xl={6}>
+							</div>
+
+							<div style={{ marginTop: '2rem' }}>
 								<Skeleton variant="circular" width={40} height={40} />
-								<Skeleton variant="text" />
+								<Skeleton variant="text" width={210} height={118} />
 								<Skeleton variant="rectangular" width={210} height={118} />
-							</Grid>
-						{/* </Container> */}
+							</div>
+
+							<div style={{ marginTop: '2rem' }}>
+								<Skeleton variant="circular" width={40} height={40} />
+								<Skeleton variant="text" width={210} height={118} />
+								<Skeleton variant="rectangular" width={210} height={118} />
+							</div>
+							<div style={{ marginTop: '2rem' }}>
+								<Skeleton variant="circular" width={40} height={40} />
+								<Skeleton variant="text" width={210} height={118} />
+								<Skeleton variant="rectangular" width={210} height={118} />
+							</div>
+						</Grid>
+						<Grid item xs={12} sm={12} md={6} lg={6} xl={6}>
+							<div>
+								<Skeleton variant="circular" width={40} height={40} />
+								<Skeleton variant="text" width={210} height={118} />
+								<Skeleton variant="rectangular" width={210} height={118} />
+							</div>
+
+							<div style={{ marginTop: '2rem' }}>
+								<Skeleton variant="circular" width={40} height={40} />
+								<Skeleton variant="text" width={210} height={118} />
+								<Skeleton variant="rectangular" width={210} height={118} />
+							</div>
+
+							<div style={{ marginTop: '2rem' }}>
+								<Skeleton variant="circular" width={40} height={40} />
+								<Skeleton variant="text" width={210} height={118} />
+								<Skeleton variant="rectangular" width={210} height={118} />
+							</div>
+							<div style={{ marginTop: '2rem' }}>
+								<Skeleton variant="circular" width={40} height={40} />
+								<Skeleton variant="text" width={210} height={118} />
+								<Skeleton variant="rectangular" width={210} height={118} />
+							</div>
+						</Grid>
+						</Container>
 					</Grid>
 				</section>
 			)}

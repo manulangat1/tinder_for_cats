@@ -28,7 +28,7 @@ import EmojiNatureIcon from '@mui/icons-material/EmojiNature';
 const routes = [
 	{
 		id: 1,
-		link: '/home',
+		link: '/',
 		route: 'Home',
 	},
 	{
