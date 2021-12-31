@@ -1,0 +1,33 @@
+{
+	"env": {
+		"browser": true,
+		"es2020": true
+	},
+	"extends": ["plugin:react/recommended", "prettier", "plugin:@typescript-eslint/recommended"],
+	"parser": "@typescript-eslint/parser",
+	"parserOptions": {
+		"ecmaFeatures": {
+			"jsx": true
+		},
+		"ecmaVersion": 2020
+	},
+	"plugins": ["react", "@typescript-eslint", "jsx-a11y"],
+	"settings": {
+		"react": { "version": "detect" },
+		"import/resolver": {
+			"typescript": {
+				"project": "./tsconfig.json"
+			}
+		}
+	},
+	"rules": {
+		"no-console": "error",
+		"react/jsx-filename-extension": [1, { "extensions": [".tsx", ".jsx"] }],
+		"import/no-unresolved": 0,
+		"@typescript-eslint/explicit-module-boundary-types": 0,
+		"no-use-before-define": 0,
+		"@typescript-eslint/no-use-before-define": "off",
+		"no-underscore-dangle": "error",
+		"eol-last": ["error", "always"]
+	}
+}
